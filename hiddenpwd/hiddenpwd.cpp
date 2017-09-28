@@ -26,7 +26,7 @@ void main() {
 					current++;
 					password[current] = ' ';
 				}
-				else if (true);///////////////////////////////////////////////////////////
+				else if (true);
 
 			}
 
