@@ -14,6 +14,7 @@ void main() {
 		int testCases, current = 0;
 		string password;
 		string pMessage;
+		bool fail = false;
 
 		fin >> testCases;
 		for (int i = 0; i < testCases; i++)
@@ -21,17 +22,23 @@ void main() {
 			fin >> password >> pMessage;
 			for (int j = 0; j < pMessage.size(); j++)
 			{
-				if (password[current] == pMessage[j])
+				if (password[current] != pMessage[j])
 				{
-					current++;
-					password[current] = ' ';
+					int n = 0;
+					for (n = current + 1; n < password.size(); n++)
+					{
+							if ((password[n] == pMessage[j]) && !fail)
+							{
+								fail = true;
+								fout << "FAIL" << endl;
+							}
+					}
 				}
-				else if (true);
-
+				else current++;
 			}
-
-
-
+			if (!fail)
+				fout << "PASS" << endl;
+			fail = false;
 			current = 0;
 		}
 
